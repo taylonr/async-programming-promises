@@ -1,0 +1,19 @@
+{
+  "name": "async-programming-promises",
+  "version": "1.0.0",
+  "description": "Source code for the Pluralsight course JavaScript Promises and Async Programming",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taylonr/async-programming-promises.git"
+  },
+  "author": "Nate Taylor (taylonr@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taylonr/async-programming-promises/issues"
+  },
+  "homepage": "https://github.com/taylonr/async-programming-promises#readme"
+}
