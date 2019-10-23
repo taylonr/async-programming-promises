@@ -4,7 +4,7 @@
   "description": "Source code for the Pluralsight course JavaScript Promises and Async Programming",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "api": "json-server "
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/taylonr/async-programming-promises/issues"
   },
-  "homepage": "https://github.com/taylonr/async-programming-promises#readme"
+  "homepage": "https://github.com/taylonr/async-programming-promises#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "json-server": "^0.15.1"
+  }
 }

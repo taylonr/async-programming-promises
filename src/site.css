@@ -1,0 +1,60 @@
+body {
+    background-color: #404040;
+    font-family: GothamSSm, Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: #F05A28
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+
+button {
+    border: none;
+    color: white;
+    padding: 2rem;
+    background: transparent;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+div.results {
+    border: 1px solid gray;
+}
+
+.bg-orange {
+    background: #F05A28
+}
+
+.bg-blue {
+    background: #2A9FBC
+}
+
+.bg-green {
+    background: #9BC850
+}
+
+.bg-purple {
+    background: #675BA7
+}
+
+.orange {
+    color: #F05A28
+}
+
+.blue {
+    color: #2A9FBC
+}
+
+.green {
+    color: #9BC850
+}
+
+.purple {
+    color: #675BA7
+}

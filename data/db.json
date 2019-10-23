@@ -1,0 +1,124 @@
+{
+  "addresses": [
+    {
+      "id": 1,
+      "street": "971 Bank Drive",
+      "city": "Dalton",
+      "state": "GA",
+      "zipCode": "30721"
+    },
+    {
+      "id": 2,
+      "street": "889 Amherst Ave.",
+      "city": "Oceanside",
+      "state": "NY",
+      "zipCode": "11572"
+    },
+    {
+      "id": 3,
+      "street": "96 Winchester St.",
+      "city": "Bowling Green",
+      "state": "KY",
+      "zipCode": "42101"
+    },
+    {
+      "id": 4,
+      "street": "836 Annadale Drive",
+      "city": "Sioux Falls",
+      "state": "SD",
+      "zipCode": "57103"
+    }
+  ],
+  "itemCategories": [{
+    "id": 1,
+    "description": "kayak"
+  }, {
+    "id": 2,
+    "description": "hiking"
+  }, {
+    "id": 3,
+    "description": "boots"
+  }],
+  "items": [{
+    "id": 1,
+    "description": "Yellow Kayak",
+    "itemCategoryId": 1,
+    "cost": 399.00
+  },{
+    "id": 2,
+    "description": "Two-person Kayak",
+    "itemCategoryId": 1,
+    "cost": 646.00
+  },{
+    "id": 3,
+    "description": "Backpack",
+    "itemCategoryId": 2,
+    "cost": 39.00
+  },{
+    "id": 4,
+    "description": "Helmet",
+    "itemCategoryId": 2,
+    "cost": 279.00
+  },{
+    "id": 5,
+    "description": "Hiking Boots",
+    "itemCategoryId": 3,
+    "cost": 85.00
+  }],
+  "orderStatuses": [
+    {
+      "id": 1,
+      "description": "In process"
+    },
+    {
+      "id": 2,
+      "description": "Confirmed"
+    },
+    {
+      "id": 3,
+      "description": "Billed"
+    },
+    {
+      "id": 4,
+      "description": "Shipped"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "orderStatusId": 1,
+      "userId": 2,
+      "shippingAddress": 3,
+      "billingAddress": 4,
+      "itemIds": [3, 4]
+    },
+    {
+      "id": 2,
+      "orderStatusId": 3,
+      "userId": 1,
+      "shippingAddress": 2,
+      "billingAddress": 2,
+      "itemIds": [1, 4]
+    },
+    {
+      "id": 3,
+      "orderStatusId": 1,
+      "userId": 2,
+      "shippingAddress": 4,
+      "billingAddress": 4,
+      "itemIds": [5]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Emil",
+      "lastName": "Ferrigno"
+    },
+    {
+      "id": 2,
+      "firstName": "Kaitlin",
+      "lastName": "Harjo"
+    }
+  ]
+}
