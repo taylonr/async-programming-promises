@@ -1,4 +1,4 @@
-import setText from './results.mjs';
+import setText, {appendText} from './results.mjs';
 
 export function get(){
 }
