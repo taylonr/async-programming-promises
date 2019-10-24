@@ -1,17 +1,47 @@
-import setText from './results.mjs';
+import setText, {appendText} from './results.mjs';
 
 export function get(){
-    setText('A');
+    axios.get("http://localhost:3000/orders/1")
+        .then(({data}) => setText(JSON.stringify(data)));
 }
 
 export function getCatch(){
-    setText('B');
+    axios.get("http://localhost:3000/orders/123")
+    .then(({data}) => setText(data.id))
+    .catch((err) => setText(err));
 }
 
 export function chain(){
-    setText('C');
+    axios.get("http://localhost:3000/orders/1")
+    .then(({data}) => {
+        return axios.get(`http://localhost:3000/addresses/${data.shippingAddress}`);
+    })
+    .then(({data}) => {
+        setText(`City: ${data.city}`);
+    })
 }
 
+export function chainCatch(){
+    axios.get("http://localhost:3000/orders/1")
+    .then(({data}) => {
+        axios.get(`http://localhost:3000/addresses/${data.shippingAddress}`);
+        throw new Error('Fake Error');
+    })
+    .then(({data}) => {
+        setText(`City: ${data.city}`);
+    })
+    .catch(setText);
+}
 export function final(){
-    setText('D');
+    axios.get("http://localhost:3000/orders/1")
+    .then(({data}) => {
+        return axios.get(`http://localhost:3000/addresses/${data.shippingAddress}`);
+    })
+    .then(({data}) => {
+        setText(`City: ${data.city}`);
+    })
+    .catch(setText)
+    .finally(() => {
+        appendText(' -- DONE');
+    });
 }
