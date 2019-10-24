@@ -15,7 +15,7 @@
         <div class="flex w-50 pa4">
             <button class="bg-blue mr2" onclick="timeout()">Timeout</button>
             <button class="bg-blue mr2" onclick="interval()">Interval</button>
-            <button class="bg-blue mr2" onclick="clearInterval()">Clear Interval</button>
+            <button class="bg-blue mr2" onclick="clearIntervalChain()">Clear Interval</button>
             <button class="bg-blue mr2" onclick="xhr()">XHR</button>
             <button class="bg-blue mr2" onclick="allPromises()">All</button>
             <button class="bg-blue mr2" onclick="allSettled()">All Settled</button>
@@ -25,11 +25,11 @@
             <h1>Results</h1>
         </div>
         <script type="module">
-            import { timeout, interval, clearInterval, xhr, allPromises, allSettled, race } from "./src/creating.mjs";
+            import { timeout, interval, clearIntervalChain, xhr, allPromises, allSettled, race } from "./src/creating.mjs";
 
             window.timeout = timeout;
             window.interval = interval;
-            window.clearInterval = clearInterval;
+            window.clearIntervalChain = clearIntervalChain;
             window.xhr = xhr;
             window.allPromises = allPromises;
             window.allSettled = allSettled;
