@@ -51,8 +51,56 @@ export function xhr() {
   request.then(setText).catch(setText);
 }
 
-export function allPromises() {}
+export function allPromises() {
+  const promise1 = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Promise 1");
+    }, 1500);
+  });
 
-export function allSettled() {}
+  const promise2 = Promise.resolve("Promise 2");
 
-export function race() {}
+  const promise3 = Promise.reject("Promise 3");
+
+  Promise.all([promise1, promise2, promise3])
+    .then(values => setText(`Success: ${values}`))
+    .catch(values => setText(`Errors: ${values}`));
+}
+
+export function allSettled() {
+  const promise1 = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Promise 1");
+    }, 1500);
+  });
+
+  const promise2 = Promise.resolve("Promise 2");
+
+  const promise3 = Promise.reject("Promise 3");
+
+  Promise.allSettled([promise1, promise2, promise3])
+    .then(values => {
+      const results = values.map(v => {
+        return `${v.value || v.reason}: ${v.status}`;
+      });
+
+      setText(results);
+    })
+    .catch(values => setText(`Errors: ${values}`));
+}
+
+export function race() {
+  const promise1 = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Promise 1");
+    }, 1500);
+  });
+
+  const promise2 = Promise.resolve("Promise 2");
+
+  const promise3 = Promise.reject("Promise 3");
+
+  Promise.race([promise1, promise2, promise3])
+    .then(values => setText(`Success: ${values}`))
+    .catch(values => setText(`Errors: ${values}`));
+}
