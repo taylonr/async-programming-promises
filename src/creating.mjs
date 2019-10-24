@@ -6,7 +6,7 @@ export function timeout(){
 export function interval(){
 }
 
-export function clearInterval(){
+export function clearIntervalChain(){
 }
 
 export function xhr(){
