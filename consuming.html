@@ -16,17 +16,19 @@
             <button class="bg-green mr2" onclick="get()">Success GET</button>
             <button class="bg-green mr2" onclick="getCatch()">Failed GET</button>
             <button class="bg-green mr2" onclick="chain()">Promise Chain</button>
+            <button class="bg-green mr2" onclick="chainCatch()">Chain Catch</button>
             <button class="bg-green mr2" onclick="final()">Final Update</button>
         </div>
         <div class="results w-50 ml4 mt4 pa4">
             <h1>Results</h1>
         </div>
         <script type="module">
-            import { get, getCatch, chain, final } from "./src/consuming.mjs";
+            import { get, getCatch, chain, chainCatch, final } from "./src/consuming.mjs";
 
             window.get = get;
             window.getCatch = getCatch;
             window.chain = chain;
+            window.chainCatch = chainCatch;
             window.final = final;
         </script>
     </body>

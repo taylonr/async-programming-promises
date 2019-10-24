@@ -12,6 +12,10 @@ export function chain(){
     setText('C');
 }
 
+export function chainCatch(){
+    setText('C1')
+}
+
 export function final(){
     setText('D');
 }
