@@ -4,7 +4,7 @@
   "description": "Source code for the Pluralsight course JavaScript Promises and Async Programming",
   "main": "index.js",
   "scripts": {
-    "api": "json-server "
+    "dev": "nodemon ./index.js"
   },
   "repository": {
     "type": "git",

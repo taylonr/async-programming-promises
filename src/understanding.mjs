@@ -20,7 +20,7 @@ export function raceCondition() {
       }
     })[0];
 
-    setText(description);
+    setText(`Order Status: ${description}`);
   };
 
   xhr2.send();
@@ -45,7 +45,7 @@ export function callbacks() {
       xhr3.onload = () => {
         const {description} = JSON.parse(xhr3.responseText);
 
-        setText(description);
+        setText(`Order Item Category: ${description}`);
       }
       xhr3.onerror = () => setText(xhr3.statusText);
       xhr3.send();
