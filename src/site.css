@@ -58,3 +58,15 @@ div.results {
 .purple {
     color: #675BA7
 }
+
+.hidden {
+    display: none;
+}
+
+.waiting {
+    background: #9BC850;
+    position: absolute;
+    top: 20%;
+    bottom: 75%;
+    width: 95%;
+}
