@@ -67,6 +67,6 @@ div.results {
     background: #9BC850;
     position: absolute;
     top: 20%;
-    bottom: 75%;
+    height: 75%;
     width: 95%;
 }
