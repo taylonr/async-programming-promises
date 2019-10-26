@@ -27,33 +27,30 @@ export function raceCondition() {
 }
 
 export function callbacks() {
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://localhost:3000/orders");
+  let xhr = new XMLHttpRequest();
+  let statuses = [];
+  xhr.open("GET", "http://localhost:3000/orderStatuses");
+
   xhr.onload = () => {
-    const data = JSON.parse(xhr.responseText);
-    const itemId = data[0].itemIds[0];
+    statuses = JSON.parse(xhr.responseText);
 
-    const xhr2 = new XMLHttpRequest();
-    xhr2.open("GET", `http://localhost:3000/items/${itemId}`);
+    let xhr2 = new XMLHttpRequest();
+    xhr2.open("GET", "http://localhost:3000/orders/1");
+
     xhr2.onload = () => {
-      const data = JSON.parse(xhr2.responseText);
-      const categoryId = data.itemCategoryId;
+      const order = JSON.parse(xhr2.responseText);
 
-      const xhr3 = new XMLHttpRequest();
-      xhr3.open("GET", `http://localhost:3000/itemCategories/${categoryId}`);
+      const description = statuses.map(t => {
+        if (t.id === order.orderStatusId) {
+          return t.description;
+        }
+      })[0];
 
-      xhr3.onload = () => {
-        const {description} = JSON.parse(xhr3.responseText);
-
-        setText(`Order Item Category: ${description}`);
-      }
-      xhr3.onerror = () => setText(xhr3.statusText);
-      xhr3.send();
+      setText(`Order Status: ${description}`);
     };
 
-    xhr2.onerror = () => setText(xhr2.statusText);
     xhr2.send();
   };
-  xhr.onerror = () => setText(xhr.statusText);
+
   xhr.send();
 }
