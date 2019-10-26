@@ -1,11 +1,11 @@
 export default function setText(text){
     const results = document.getElementsByClassName("results")[0].children[0];
-    results.innerHTML = text;
+    results.innerHTML = text.replace(/([{},:])/g, ' $1 ');
 }
 
 export function appendText(text){
     const results = document.getElementsByClassName("results")[0].children[0];
-    results.innerHTML += text;
+    results.innerHTML += text.replace(/([{},:])/g, ' $1 ');
 }
 
 export function showWaiting(){
