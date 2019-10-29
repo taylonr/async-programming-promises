@@ -42,7 +42,7 @@ export function clearIntervalChain() {
 export function xhr() {
   let request = new Promise((resolve, reject) => {
     var xhr = new XMLHttpRequest();
-              xhr.open("GET", "http://localhost:3000/users");
+              xhr.open("GET", "http://localhost:3000/accounts");
               xhr.onload = () => resolve(xhr.responseText);
               xhr.onerror = () => reject(xhr.statusText);
               xhr.send();
