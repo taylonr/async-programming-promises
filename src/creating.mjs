@@ -19,7 +19,7 @@ export function interval() {
     }, 1500);
   });
 
-  wait.then(setText).finally(() => appendText(" -- Done"));
+  wait.then(setText).finally(() => appendText(` -- Done ${counter}`));
 }
 
 export function clearIntervalChain() {
