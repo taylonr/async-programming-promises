@@ -32,27 +32,33 @@ export function clearIntervalChain() {
     }, 1500);
   });
 
-  wait
-    .then(setText)
-    .finally(() => {
-        clearInterval(interval)
-    });
+  wait.then(setText).finally(() => {
+    clearInterval(interval);
+  });
 }
 
 export function xhr() {
   let request = new Promise((resolve, reject) => {
     var xhr = new XMLHttpRequest();
-              xhr.open("GET", "http://localhost:3000/accounts");
-              xhr.onload = () => resolve(xhr.responseText);
-              xhr.onerror = () => reject(xhr.statusText);
-              xhr.send();
-  })
+    xhr.open("GET", "http://localhost:3000/users/7");
+    xhr.onload = () => {
+      if(xhr.status === 200){
+        resolve(xhr.responseText);
+      } else {
+        reject(xhr.statusText);
+      }
+    }
+    xhr.onerror = () => {
+      reject("Request failed!");
+    };
+    xhr.send();
+  });
 
   request.then(setText).catch(setText);
 }
 
 export function allPromises() {
-  const promise1 = new Promise((resolve) => {
+  const promise1 = new Promise(resolve => {
     setTimeout(() => {
       resolve("Promise 1");
     }, 1500);
@@ -68,7 +74,7 @@ export function allPromises() {
 }
 
 export function allSettled() {
-  const promise1 = new Promise((resolve) => {
+  const promise1 = new Promise(resolve => {
     setTimeout(() => {
       resolve("Promise 1");
     }, 1500);
@@ -90,7 +96,7 @@ export function allSettled() {
 }
 
 export function race() {
-  const promise1 = new Promise((resolve) => {
+  const promise1 = new Promise(resolve => {
     setTimeout(() => {
       resolve("Promise 1");
     }, 1500);
