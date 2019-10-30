@@ -4,7 +4,8 @@
   "description": "Source code for the Pluralsight course JavaScript Promises and Async Programming",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js"
+    "dev": "nodemon ./index.js",
+    "secondary": "cross-env PORT=3001 nodemon ./index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/taylonr/async-programming-promises#readme",
   "dependencies": {
+    "cross-env": "^6.0.3",
     "express": "^4.17.1",
     "json-server": "^0.15.1"
   }
