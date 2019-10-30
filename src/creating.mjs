@@ -42,12 +42,12 @@ export function xhr() {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "http://localhost:3000/users/7");
     xhr.onload = () => {
-      if(xhr.status === 200){
+      if (xhr.status === 200) {
         resolve(xhr.responseText);
       } else {
         reject(xhr.statusText);
       }
-    }
+    };
     xhr.onerror = () => {
       reject("Request failed!");
     };
@@ -58,55 +58,51 @@ export function xhr() {
 }
 
 export function allPromises() {
-  const promise1 = new Promise(resolve => {
-    setTimeout(() => {
-      resolve("Promise 1");
-    }, 1500);
-  });
+  let categories = axios.get("http://localhost:3000/itemCategories");
+  let statuses = axios.get("http://localhost:3000/orderStatuses");
+  let userTypes = axios.get("http://localhost:3000/userTypes");
+  let address = axios.get("http://localhost:3000/addressTypes");
 
-  const promise2 = Promise.resolve("Promise 2");
-
-  const promise3 = Promise.reject("Promise 3");
-
-  Promise.all([promise1, promise2, promise3])
-    .then(values => setText(`Success: ${values}`))
-    .catch(values => setText(`Errors: ${values}`));
+  Promise.all([categories, statuses, userTypes, address])
+    .then(([cat, stat, type, address]) => {
+      setText("");
+      appendText(JSON.stringify(cat.data));
+      appendText(JSON.stringify(stat.data));
+      appendText(JSON.stringify(type.data));
+      appendText(JSON.stringify(address.data));
+    })
+    .catch(reasons => {
+      setText(reasons);
+    });
 }
 
 export function allSettled() {
-  const promise1 = new Promise(resolve => {
-    setTimeout(() => {
-      resolve("Promise 1");
-    }, 1500);
-  });
+  let categories = axios.get("http://localhost:3000/itemCategories");
+  let statuses = axios.get("http://localhost:3000/orderStatuses");
+  let userTypes = axios.get("http://localhost:3000/userTypes");
+  let address = axios.get("http://localhost:3000/addressTypes");
 
-  const promise2 = Promise.resolve("Promise 2");
-
-  const promise3 = Promise.reject("Promise 3");
-
-  Promise.allSettled([promise1, promise2, promise3])
+  Promise.allSettled([categories, statuses, userTypes, address])
     .then(values => {
-      const results = values.map(v => {
-        return `${v.value || v.reason}: ${v.status}`;
+      let results = values.map(v => {
+        if (v.status === "fulfilled") {
+          return `FULFILLED: ${JSON.stringify(v.value.data[0])}`;
+        }
+
+        return `REJECTED: ${v.reason.message}`;
       });
 
       setText(results);
     })
-    .catch(values => setText(`Errors: ${values}`));
+    .catch(reasons => {
+      setText(reasons);
+    });
 }
 
 export function race() {
-  const promise1 = new Promise(resolve => {
-    setTimeout(() => {
-      resolve("Promise 1");
-    }, 1500);
-  });
-
-  const promise2 = Promise.resolve("Promise 2");
-
-  const promise3 = Promise.reject("Promise 3");
-
-  Promise.race([promise1, promise2, promise3])
-    .then(values => setText(`Success: ${values}`))
-    .catch(values => setText(`Errors: ${values}`));
+  let users = axios.get("http://localhost:3000/users");
+  let backupUsers = axios.get("http://localhost:3001/users");
+  Promise.race([users, backupUsers])
+    .then(users => setText(JSON.stringify(users.data)))
+    .catch(reason => setText(reason));
 }
