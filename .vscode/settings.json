@@ -1,0 +1,19 @@
+{
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.wordBaseSuggestions": false,
+    "editor.parameterHints.enabled": false,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    "git.decorations.enabled": false,
+    "editor.minimap.enabled": false,
+    "gitlens.blame.highlight.enabled": false,
+    "gitlens.toggleCodeLens": false,
+    "gitlens.toggleLineBlame": false,
+    "gitlens.currentLine.enabled": false
+}
