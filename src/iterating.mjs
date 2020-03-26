@@ -48,16 +48,16 @@ export async function parallel(){
     })()]);
 }
 
-export async function parallel() {
-  setText("");
-  await Promise.all([
-    (async () => {
-        const { data } = await axios.get("http://localhost:3000/orderStatuses");
-        appendText(JSON.stringify(data));
-      })(),
-    (async () => {
-      const { data } = await axios.get("http://localhost:3000/orders");
-      appendText(JSON.stringify(data[0]));
-    })()
-  ]);
-}
+// export async function parallel() {
+//   setText("");
+//   await Promise.all([
+//     (async () => {
+//         const { data } = await axios.get("http://localhost:3000/orderStatuses");
+//         appendText(JSON.stringify(data));
+//       })(),
+//     (async () => {
+//       const { data } = await axios.get("http://localhost:3000/orders");
+//       appendText(JSON.stringify(data[0]));
+//     })()
+//   ]);
+// }
