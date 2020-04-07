@@ -98,5 +98,10 @@ export function allSettled(){
 }
 
 export function race(){
-  
+  let users = axios.get("http://localhost:3000/users")
+  let backup = axios.get("http://localhost:3001/backup")
+
+  Promise.race([users, backup])
+    .then(users => setText(JSON.stringify(users.data)))
+    .catch(error => setText(error))
 }
