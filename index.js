@@ -35,6 +35,11 @@ server.use("/service-worker.js", (req, res) =>
 );
 
 server.use(router);
-server.listen(3000, () => {
-  console.log("JSON Server is running on port 3000");
+// server.listen(3000, () => {
+//   console.log("JSON Server is running on port 3000");
+// });
+// allow for port 3001
+const port = process.env.PORT || 3000
+server.listen(port, () => {
+  console.log(`JSON Server is running on port ${port}`);
 });
