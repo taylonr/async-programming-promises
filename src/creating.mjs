@@ -64,6 +64,8 @@ export function allPromises(){
   let userTypes = axios.get("http://localhost:3000/userTypes")
   let addressTypes = axios.get("http://localhost:3000/addressTypes")
 
+  // wait until all promises
+  // fulfilled or one is rejected
   Promise.all([categories, statuses, userTypes, addressTypes])
     .then(([cat, stat, type, address]) => {
       setText("");
@@ -82,6 +84,8 @@ export function allSettled(){
   let userTypes = axios.get("http://localhost:3000/userTypes")
   let addressTypes = axios.get("http://localhost:3000/addressTypes")
 
+  // wait until all are
+  // fulfilled or rejected
   Promise.allSettled([categories, statuses, userTypes, addressTypes])
     .then((values) => {
       let results = values.map(v => {
@@ -101,6 +105,7 @@ export function race(){
   let users = axios.get("http://localhost:3000/users")
   let backup = axios.get("http://localhost:3001/backup")
 
+  // return fastest promise
   Promise.race([users, backup])
     .then(users => setText(JSON.stringify(users.data)))
     .catch(error => setText(error))
