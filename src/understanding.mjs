@@ -40,13 +40,12 @@ export function callbacks() {
     xhr2.onload = () => {
       const order = JSON.parse(xhr2.responseText);
 
-      const description = statuses.map(t => {
-        if (t.id === order.orderStatusId) {
-          return t.description;
+      const status = statuses.filter(stat => {
+        return stat.id === order.orderStatusId
         }
-      })[0];
+      )[0];
 
-      setText(`Order Status: ${description}`);
+      setText(`Order Status: ${status.description}`);
     };
 
     xhr2.send();
