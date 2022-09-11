@@ -6,7 +6,7 @@ export default function setText(text){
 
 export function appendText(text){
     const results = document.getElementsByClassName("results")[0].children[0];
-    results.innerHTML += text.replace ? text.replace(/([{},:])/g, ' $1 ') : text;
+    results.innerHTML += '<br/><br/>' + (text.replace ? text.replace(/([{},:])/g, ' $1 ') : text);
 }
 
 export function showWaiting(){

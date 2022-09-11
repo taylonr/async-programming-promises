@@ -13,6 +13,7 @@ server.get("/orderStatuses", (req, res, next) => {
   }, 1500);
 });
 
+
 server.use("/src", express.static(__dirname + "/src/"));
 server.use("/home", (req, res) => {
   res.sendFile(path.join(__dirname + "/index.html"));

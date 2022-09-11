@@ -20,9 +20,9 @@
   "dependencies": {
     "cross-env": "^6.0.3",
     "express": "^4.17.1",
-    "json-server": "^0.15.1"
+    "json-server": "^0.17.0"
   },
-    "devDependencies": {
+  "devDependencies": {
     "nodemon": "^2.0.2"
   }
 }
