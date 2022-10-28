@@ -96,4 +96,13 @@ export function allSettled() {
     });
 }
 
-export function race() {}
+export function race() {
+  let user = axios.get("http://localhost:3000/users");
+  let backup = axios.get("http://localhost:3001/users");
+
+  Promise.race([user, backup])
+    .then((users) => {
+      setText(JSON.stringify(users.data));
+    })
+    .catch((reason) => setText(reason));
+}
