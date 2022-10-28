@@ -75,6 +75,25 @@ export function allPromises() {
     });
 }
 
-export function allSettled() {}
+export function allSettled() {
+  let categories = axios.get("http://localhost:3000/itemCategories");
+  let statuses = axios.get("http://localhost:3000/orderStatuses");
+  let userTypes = axios.get("http://localhost:3000/userTypes");
+  let addressTypes = axios.get("http://localhost:3000/addressTypes");
+
+  Promise.allSettled([categories, statuses, userTypes, addressTypes])
+    .then((values) => {
+      let result = values.map((v) => {
+        if (v.status === "fulfilled") {
+          return `FULFILLED: ${JSON.stringify(v.value.data[0])} `;
+        }
+        return `REJECTED: ${v.reason.message} `;
+      });
+      setText(result);
+    })
+    .catch((reasons) => {
+      setText(reasons);
+    });
+}
 
 export function race() {}
