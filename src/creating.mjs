@@ -55,7 +55,25 @@ export function xhr() {
   wait.then((result) => setText(result)).catch((reason) => setText(reason));
 }
 
-export function allPromises() {}
+export function allPromises() {
+  let categories = axios.get("http://localhost:3000/itemCategories");
+  let statuses = axios.get("http://localhost:3000/orderStatuses");
+  let userTypes = axios.get("http://localhost:3000/userTypes");
+  let addressTypes = axios.get("http://localhost:3000/addressTypes");
+
+  Promise.all([categories, statuses, userTypes, addressTypes])
+    .then(([cat, sta, typ, add]) => {
+      setText("");
+
+      appendText(JSON.stringify(cat.data));
+      appendText(JSON.stringify(sta.data));
+      appendText(JSON.stringify(typ.data));
+      appendText(JSON.stringify(add.data));
+    })
+    .catch((reasons) => {
+      setText(reasons);
+    });
+}
 
 export function allSettled() {}
 
