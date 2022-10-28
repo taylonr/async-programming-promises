@@ -10,9 +10,32 @@ export function timeout() {
   wait.then((text) => setText(text));
 }
 
-export function interval() {}
+export function interval() {
+  let counter = 0;
+  const wait = new Promise((resolve) => {
+    setInterval(() => {
+      console.log("interval");
+      resolve(`Timeout! ${++counter})`);
+    }, 2000);
+  });
 
-export function clearIntervalChain() {}
+  wait
+    .then((text) => setText(text))
+    .finally(() => appendText(` -- done ${counter}`));
+}
+
+export function clearIntervalChain() {
+  let counter = 0;
+  let interval;
+  const wait = new Promise((resolve) => {
+    interval = setInterval(() => {
+      console.log("interval");
+      resolve(`Timeout! ${++counter})`);
+    }, 2000);
+  });
+
+  wait.then((text) => setText(text)).finally(() => clearInterval(interval));
+}
 
 export function xhr() {}
 
