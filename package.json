@@ -19,7 +19,7 @@
   "homepage": "https://github.com/taylonr/async-programming-promises#readme",
   "dependencies": {
     "cross-env": "^7.0.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "json-server": "^0.15.1"
   },
   "devDependencies": {
